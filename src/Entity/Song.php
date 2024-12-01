@@ -4,7 +4,11 @@ namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\SongRepository;
+use ApiPlatform\Doctrine\Orm\Filter\RangeFilter;
+use ApiPlatform\Metadata\ApiFilter;
 use Doctrine\ORM\Mapping as ORM;
+
+#[ApiFilter(RangeFilter::class, properties: ['length'])]
 
 #[ORM\Entity(repositoryClass: SongRepository::class)]
 #[ApiResource]
